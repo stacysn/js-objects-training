@@ -46,8 +46,33 @@ function daysUntilDate(date){
    var theDate1 = new Date(splitDate[2], splitDate[0], (splitDate[1] - 1));
    var newToday = new Date(splitToday[2], splitToday[0], (splitToday[1] - 1));
 
-   var diff = Math.ceil((newToday.getTime() - theDate1.getTime())/(oneDay));
-   console.log(diff);
+   var diff = Math.ceil((theDate1.getTime() - newToday.getTime())/(oneDay));
+
+   if (diff > 0){
+     console.log("It is in " + Math.abs(diff) + " days");
+   }
+   else if (diff < 0){
+     console.log("It was " + Math.abs(diff) + " days ago");
+   }
 }
 
-daysUntilDate('07/01/2017'); //NEED YEAR
+daysUntilDate('07/09/2016'); //NEED YEAR
+
+
+function birthdayReminder(array){
+  for (var i = 0; i < array.length; i++){
+    return (array[i].name + "'s birthday is in " + daysUntilDate(array[i].dob) + " days" )
+  }
+}
+// console.log(birthdayReminder([
+//   {
+//     name: "Jack",
+//     dob: "10/31/2013"
+//   },
+//   {
+//     name: "Jill",
+//     dob: "4/01/1975"
+//   }
+// ]));
+//
+// console.log(array[0]);

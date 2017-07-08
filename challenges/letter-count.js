@@ -1,5 +1,4 @@
 /*
-
   Create a function `letterCount` that accepts a string, and finds the number of times each letter
   occurs in the string. For example, given the word "apple", letterCount("apple") should count all
   occurrences of the letters "a", "p", "l" and "e" and then return the following output:
@@ -31,3 +30,27 @@
 */
 
 // YOUR CODE HERE
+//letterCount("apple")
+
+function letterCount(string){
+  var letters = {};
+  var lowString = string.toLowerCase();
+  for (var i = 0; i < lowString.length; i++){
+    var letter = string[i];
+    var alphabet = 'abcdefghijklmnopqrstuvwxyz'
+
+    // console.log("BLAH", (letter in letters)); //other way to check if key present in object
+    // console.log("ADDING HERE", letters.letter = 1);
+    // console.log(letters[string[i]]);
+    if (letters[lowString[i]] === undefined) {
+      letters[lowString[i]] = 1;
+      // console.log(letters);
+    }
+    else if (letters[lowString[i]] !== -1){
+      letters[lowString[i]] += 1;
+    }
+  }
+  console.log(letters);
+}
+
+letterCount("apPple");
