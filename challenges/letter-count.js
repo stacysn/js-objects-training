@@ -26,11 +26,9 @@
       "e": 0.2
     }
     ```
-
 */
 
 // YOUR CODE HERE
-//letterCount("apple")
 
 function letterCount(string){
   var letters = {};

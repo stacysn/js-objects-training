@@ -38,3 +38,35 @@
 */
 
 // YOUR CODE HERE
+function pingPong(array){
+  var objectIndex = array.findIndex(function(el){
+    //this indicates there is an elem other than null!!
+    return el;
+  });
+  var object = array[objectIndex];
+  //object is where the step is found in the array
+  if (Math.floor(object.steps/(array.length-1)) % 2 === 0){
+  //rounds down using Math.floor
+  //object.step is the indice where step is
+  //divide that indice by length-1 and see if it's divisible by 2 would be 0 (aka not 1,
+  //which is the last number --> so if array.length = 4, 4/4 is 1. Needs to go backwards
+    table[objectIndex + 1] = object;
+  }
+  else{
+    array[objectIndex - 1] = object;
+  }
+  object.steps += 1;
+  array[objectIndex] = null;
+  return array;
+}
+
+var table = [{steps: 0}, null, null, null];
+console.log(pingPong(table));
+//if (Math.floor(object.steps/(array.length-1)) % 2 === 0)
+//    table[objectIndex + 1] = object;
+
+//// 0/4 % 2 === 0 --> table = [{null, }]
+
+console.log(pingPong(table));
+console.log(pingPong(table));
+console.log(pingPong(table));
